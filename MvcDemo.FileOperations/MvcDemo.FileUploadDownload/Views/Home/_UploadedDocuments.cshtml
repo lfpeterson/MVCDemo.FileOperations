@@ -1,0 +1,42 @@
+﻿@model MvcDemo.FileUploadDownload.Models.HomeViewModel
+
+<div id="requiredDocuments">
+    <legend>Upload Documents</legend>
+        <table id="requiredDocumentsTable" class="table table-striped table-bordered responsive nowrap" cellspacing="0" data-toggle="table" style="width: 100%;">
+            <thead class="hidden">
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Documents)
+            {
+                <tr>
+                    <td>
+                        @if (item.FileUploaded)
+                        {
+                            <label class="glyphicon glyphicon-remove btn"></label>
+                        }
+                        else
+                        {
+                            <label class="glyphicon glyphicon-upload btn btn-file"><input type="file" name="file" class="uploadFile hidden" /></label>
+                        }
+                        @if (item.HasTemplate)
+                        {
+                            <label class="glyphicon glyphicon-save btn"></label>
+                        }
+                    </td>
+                    @if (item.FileUploaded)
+                    {
+                        <td><a href="#" data-toggle="tooltip" title="@item.UploadedFileName">@item.DocumentName</a></td>
+                    }
+                    else
+                    {
+                        <td>@item.DocumentName</td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>

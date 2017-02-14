@@ -1,0 +1,14 @@
+﻿@model MvcDemo.FileUploadDownload.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "File Upload/Download";
+}
+
+<div class="jumbotron">
+    <h3>File Upload / Download</h3>
+
+    @Html.Partial("_UploadedDocuments", Model)
+
+</div>
+
+<script src="~/Scripts/App/home.js"></script>
